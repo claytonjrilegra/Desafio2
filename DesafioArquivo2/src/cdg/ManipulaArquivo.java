@@ -24,6 +24,7 @@ public class ManipulaArquivo {
     
     public ArrayList LeArquivo(String CaminhoArquivo) throws Exception{
         //CaminhoArquivo = "src\\Cdg\\vendas.txt";
+        
         ArrayList<Votacao> guardaVotos = new ArrayList();
         
         try {
@@ -48,21 +49,21 @@ public class ManipulaArquivo {
                 leLinha = le.readLine();
              }
              
-             Map<String, String> map = new HashMap<String, String>();
-
-          
+                      
             }catch(Exception e){
-                     
+                    
             }
              
         return guardaVotos;
     }//Fim leArquivo
     
     
-    public void contaVotos(ArrayList<Votacao> votos){
+    public ArrayList contaVotos(ArrayList<Votacao> votos){
                
                 int contSim = 0;
                 int contNao = 0;
+                
+              ArrayList arrayCont = new ArrayList();
         
             for (int i = 0; i < votos.size(); i++) {
                                              
@@ -80,9 +81,13 @@ public class ManipulaArquivo {
                 
             }//Final FOR
             
+            arrayCont.add(contSim);
+            arrayCont.add(contNao);
+            
+            
             System.out.println("Total de votos positivos: "+ contSim + "\nTotal "
                     + "de votos negativos: "+ contNao);
-            
+            return arrayCont;
     }//FIM contaVotos
     
     public void estadoMaisVotado(ArrayList<Votacao> votos){
